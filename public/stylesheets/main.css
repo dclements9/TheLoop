@@ -15,6 +15,7 @@
   body {
     
     background-image: url("../images/marcel-heil-1250622-unsplash.jpg");
+    background-attachment: fixed;
     background-size: cover;
     color: #333;
     font-family: Sans-Serif;
