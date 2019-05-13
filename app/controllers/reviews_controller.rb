@@ -3,10 +3,18 @@ class ReviewsController < ApplicationController
         erb :'/reviews/new'
     end
 
-    post '/new' do
-
-        erb :'/reviews/show'
+    get '/reviews/:id' do
+        @review = Review.find(params[:id])
+        erb :'reviews/show'
     end
+
+    post '/new' do
+        @review = Review.create(params)
+ 
+        redirect "reviews/#{@review.id}"
+        
+    end
+
 
     get '/all' do
         erb :'/reviews/all'
