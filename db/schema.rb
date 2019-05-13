@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20190513125703) do
+ActiveRecord::Schema.define(version: 20190513191613) do
 
   create_table "reviews", force: :cascade do |t|
     t.string  "track_name"
@@ -22,6 +22,15 @@ ActiveRecord::Schema.define(version: 20190513125703) do
     t.integer "crowds"
     t.string  "comments"
     t.integer "user_id"
+    t.integer "track_id"
+  end
+
+  create_table "tracks", force: :cascade do |t|
+    t.string  "name"
+    t.decimal "length"
+    t.integer "type"
+    t.string  "address"
+    t.integer "reviews_id"
   end
 
   create_table "users", force: :cascade do |t|
