@@ -1,0 +1,55 @@
+<h1> Create a Review: </h1>
+
+<form action='/new' method='POST'>
+<p>
+<label for=track_name>Track Name:</label>
+<input type="text" id="track_name" name="track_name" placeholder="Track Name">
+</p>
+<h3>Select your ratings below:</h3>
+<label for=overall>Overall:</label>
+<input type="radio" name="overall" value="1">1
+<input type="radio" name="overall" value="2">2
+<input type="radio" name="overall" value="3">3
+<input type="radio" name="overall" value="4">4
+<input type="radio" name="overall" value="5">5
+<br>
+<br>
+<label for=vendors>Vendors:</label>
+<input type="radio" name="vendors" value="1">1
+<input type="radio" name="vendors" value="2">2
+<input type="radio" name="vendors" value="3">3
+<input type="radio" name="vendors" value="4">4
+<input type="radio" name="vendors" value="5">5
+<br>
+<br>
+<label for=child_friendly>Child Friendly:</label>
+<input type="radio" name="child_friendly" value="1">1
+<input type="radio" name="child_friendly" value="2">2
+<input type="radio" name="child_friendly" value="3">3
+<input type="radio" name="child_friendly" value="4">4
+<input type="radio" name="child_friendly" value="5">5
+<br>
+<br>
+<label for=walkability>Terrain/Walkability:</label>
+<input type="radio" name="walkability" value="1">1
+<input type="radio" name="walkability" value="2">2
+<input type="radio" name="walkability" value="3">3
+<input type="radio" name="walkability" value="4">4
+<input type="radio" name="walkability" value="5">5
+<br>
+<br>
+<label for=crowds>Crowds:</label>
+<input type="radio" name="crowds" value="1">1
+<input type="radio" name="crowds" value="2">2
+<input type="radio" name="crowds" value="3">3
+<input type="radio" name="crowds" value="4">4
+<input type="radio" name="crowds" value="5">5
+<p>
+<br>
+<label for=comments>Comments:</label>
+<br>
+<textarea id="comments" name="comments" rows="7" cols="50" placeholder="Write your comments here"></textarea>
+</p>
+
+<input type="submit" value="Submit Review">
+</form>
