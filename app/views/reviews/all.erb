@@ -1,3 +1,22 @@
 <h1>All Reviews:</h1>
 
-All Reviews Here.
+<%@reviews.each do |review|%>
+<p>
+<br><br>
+    Review #: <%=review.id%>
+    <br><br>
+    Track Name: <%=review.track_name%>
+    <br><br>
+    Overall Rating: <%=review.overall%>
+    <br><br>
+    Vendors Rating: <%=review.vendors%>
+    <br><br>
+    Child Friendly Rating: <%=review.child_friendly%>
+    <br><br>
+    Walkability Rating: <%=review.walkability%>
+    <br><br>
+    Crowds Rating: <%=review.crowds%>
+    <br><br>
+    Comments: <%=review.comments%>
+</p>
+<%end%>
