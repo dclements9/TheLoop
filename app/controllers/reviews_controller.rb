@@ -1,5 +1,6 @@
 class ReviewsController < ApplicationController
     get '/new' do
+        @tracks = Track.all
         erb :'/reviews/new'
     end
 
@@ -9,12 +10,11 @@ class ReviewsController < ApplicationController
     end
 
     post '/new' do
-        @review = Review.create(params)
- 
+        @review = Review.new(params[:review])
+        binding.pry
+        @review.save
         redirect "reviews/#{@review.id}"
-        
     end
-
 
     get '/all' do
         erb :'/reviews/all'

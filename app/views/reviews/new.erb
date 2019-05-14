@@ -1,54 +1,72 @@
 <h1> Create a Review: </h1>
 
 <form action='/new' method='POST'>
-<p>
+
+Select the track to review:
+
+<%if !@tracks.empty?%>
+    <%@tracks.each do |track|%>
+        <input type="radio" name="track_name_box" value="<%=track.id%>" id="<%=track.id%>"><%=track.name%></input>
+    <%end%>
+or
+<%end%>
+<br><br>
+<br><h3>Create a new one:</h3>
 <label for=track_name>Track Name:</label>
-<input type="text" id="track_name" name="track_name" placeholder="Track Name">
-</p>
+<input type="text" id="track_name" name="track[name]" placeholder="Track Name">
+<br><br>
+<label for=track_length>Track Length(Decimal):</label>
+<input type="text" id="track_length" name="track[length]" placeholder="Track Length">
+<br><br>
+<label for=track_type>Track Type:</label>
+<input type="radio" id="track_type_oval" name="track[type]" value="1">Oval
+<input type="radio" id="track_type_road" name="track[type]" value="2">Road
+<br><br>
+<label for=track_address>Track Address:</label>
+<input type="text" id="track_address" name="track[address]" placeholder="Track Address">
+<br><br>
 <h3>Select your ratings below:</h3>
+Lowest 1 <-----> 5 Highest
+<br><br>
 <label for=overall>Overall:</label>
-<input type="radio" id="overall1" name="overall" value="1">1
-<input type="radio" id="overall2" name="overall" value="2">2
-<input type="radio" id="overall3" name="overall" value="3">3
-<input type="radio" id="overall4" name="overall" value="4">4
-<input type="radio" id="overall5" name="overall" value="5">5
-<br>
-<br>
+<input type="radio" id="overall1" name="review[overall]" value="1">1
+<input type="radio" id="overall2" name="review[overall]" value="2">2
+<input type="radio" id="overall3" name="review[overall]" value="3">3
+<input type="radio" id="overall4" name="review[overall]" value="4">4
+<input type="radio" id="overall5" name="review[overall]" value="5">5
+<br><br>
 <label for=vendors>Vendors:</label>
-<input type="radio" id="vendors1" name="vendors" value="1">1
-<input type="radio" id="vendors2" name="vendors" value="2">2
-<input type="radio" id="vendors3" name="vendors" value="3">3
-<input type="radio" id="vendors4" name="vendors" value="4">4
-<input type="radio" id="vendors5" name="vendors" value="5">5
-<br>
-<br>
+<input type="radio" id="vendors1" name="review[vendors]" value="1">1
+<input type="radio" id="vendors2" name="review[vendors]" value="2">2
+<input type="radio" id="vendors3" name="review[vendors]" value="3">3
+<input type="radio" id="vendors4" name="review[vendors]" value="4">4
+<input type="radio" id="vendors5" name="review[vendors]" value="5">5
+<br><br>
 <label for=child_friendly>Child Friendly:</label>
-<input type="radio" id="child_friendly1" name="child_friendly" value="1">1
-<input type="radio" id="child_friendly2" name="child_friendly" value="2">2
-<input type="radio" id="child_friendly3" name="child_friendly" value="3">3
-<input type="radio" id="child_friendly4" name="child_friendly" value="4">4
-<input type="radio" id="child_friendly5" name="child_friendly" value="5">5
-<br>
-<br>
+<input type="radio" id="child_friendly1" name="review[child_friendly]" value="1">1
+<input type="radio" id="child_friendly2" name="review[child_friendly]" value="2">2
+<input type="radio" id="child_friendly3" name="review[child_friendly]" value="3">3
+<input type="radio" id="child_friendly4" name="review[child_friendly]" value="4">4
+<input type="radio" id="child_friendly5" name="review[child_friendly]" value="5">5
+<br><br>
 <label for=walkability>Terrain/Walkability:</label>
-<input type="radio" id="walkability1" name="walkability" value="1">1
-<input type="radio" id="walkability2" name="walkability" value="2">2
-<input type="radio" id="walkability3" name="walkability" value="3">3
-<input type="radio" id="walkability4" name="walkability" value="4">4
-<input type="radio" id="walkability5" name="walkability" value="5">5
-<br>
-<br>
+<input type="radio" id="walkability1" name="review[walkability]" value="1">1
+<input type="radio" id="walkability2" name="review[walkability]" value="2">2
+<input type="radio" id="walkability3" name="review[walkability]" value="3">3
+<input type="radio" id="walkability4" name="review[walkability]" value="4">4
+<input type="radio" id="walkability5" name="review[walkability]" value="5">5
+<br><br>
 <label for=crowds>Crowds:</label>
-<input type="radio" id="crowds1" name="crowds" value="1">1
-<input type="radio" id="crowds2" name="crowds" value="2">2
-<input type="radio" id="crowds3" name="crowds" value="3">3
-<input type="radio" id="crowds4" name="crowds" value="4">4
-<input type="radio" id="crowds5" name="crowds" value="5">5
+<input type="radio" id="crowds1" name="review[crowds]" value="1">1
+<input type="radio" id="crowds2" name="review[crowds]" value="2">2
+<input type="radio" id="crowds3" name="review[crowds]" value="3">3
+<input type="radio" id="crowds4" name="review[crowds]" value="4">4
+<input type="radio" id="crowds5" name="review[crowds]" value="5">5
 <p>
 <br>
 <label for=comments>Comments:</label>
 <br>
-<textarea id="comments" name="comments" rows="7" cols="50" placeholder="Write your comments here"></textarea>
+<textarea id="comments" name="review[comments]" rows="7" cols="50" placeholder="Write your comments here"></textarea>
 </p>
 
 <input type="submit" value="Submit Review">
