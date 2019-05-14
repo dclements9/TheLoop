@@ -11,13 +11,16 @@ class ReviewsController < ApplicationController
     end
 
     post '/new' do
+        binding.pry
         @review = Review.new(params[:review])
-        if params[:track][:name] != ""  
+        if params[:track][:name] != ""
             @track = Track.create(params[:track]) 
+        elsif params[:track][:name] != "None"
+
         end
         @review.track_name = @track.name
         @review.user_id=session[:user_id]
-        
+
         @review.track_id=@track.id     
         @review.save
         redirect "reviews/#{@review.id}"

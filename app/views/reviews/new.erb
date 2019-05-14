@@ -5,13 +5,12 @@
 Select the track to review:
 
 <%if !@tracks.empty?%>
-<select>
-    <option value="none">None</option>
+        <input type="radio" name="track_radio" value="">None</input>
     <%@tracks.each do |track|%>
-        <option name="track_name_selector" value="<%=track.id%>" id="<%=track.id%>"><%=track.name%></option>
+        <input type="radio" name="track_radio" value="<%=track.name%>" id="<%=track.id%>"><%=track.name%></input>
     <%end%>
-</select> 
-or
+    <br><br>
+Or
 <%end%>
 <br>
 <br><h3>Create a new one:</h3>
