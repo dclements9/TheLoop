@@ -33,6 +33,7 @@ class UsersController < ApplicationController
     end
 
     get "/account" do
+        
         @user = User.find(session[:user_id])
         if  @user
             erb :'/users/account'
@@ -44,15 +45,5 @@ class UsersController < ApplicationController
     get '/logout' do
         session.clear
         redirect '/'
-    end
-
-    helpers do
-        def logged_in?
-          !!session[:user_id]
-        end
-    
-        def current_user
-          User.find(session[:user_id])
-        end
     end
 end
