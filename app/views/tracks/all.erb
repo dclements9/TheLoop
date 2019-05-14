@@ -1,10 +1,16 @@
 <h1> All Tracks: </h1>
-
-<%=binding.pry%>
+<br><br>
 <%@tracks.each do |track|%>
-    Name: <%=track.name%>
+<p>
     Track # <%=track.id%>
+<br><br>
+    Name: <%=track.name%>
+<br><br>
     Length: <%=track.length%>
+<br><br>
     Type: <%=track.track_type%>
+<br><br>
     Address: <%=track.address%>
+<br><br>
+</p>
 <%end%>
