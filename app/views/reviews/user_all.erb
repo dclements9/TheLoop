@@ -1,0 +1,25 @@
+<h1>Your reviews:</h1>
+
+<%@reviews.each do |review|%>
+
+<%if review.user_id == @user.id%>
+    <p>
+    <br><br>
+        Review #: <%=review.id%>
+        <br><br>
+        Track Name: <%=review.track_name%>
+        <br><br>
+        Overall Rating: <%=review.overall%>
+        <br><br>
+        Vendors Rating: <%=review.vendors%>
+        <br><br>
+        Child Friendly Rating: <%=review.child_friendly%>
+        <br><br>
+        Walkability Rating: <%=review.walkability%>
+        <br><br>
+        Crowds Rating: <%=review.crowds%>
+        <br><br>
+        Comments: <%=review.comments%>
+    </p>
+    <%end%>
+<%end%>
