@@ -2,7 +2,8 @@
 <br><br>
 <%@tracks.each do |track|%>
 <p>
-    Track # <%=track.id%>
+
+    <a href="/tracks/<%=track.id%>">Track # <%=track.id%></a>
 <br><br>
     Name: <%=track.name%>
 <br><br>

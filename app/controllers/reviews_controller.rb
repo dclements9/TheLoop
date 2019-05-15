@@ -26,8 +26,10 @@ class ReviewsController < ApplicationController
     end
 
     get '/all' do
+        
         @reviews = Review.all
-        @user = User.find(session[:user_id])       
+        @user = User.find(session[:user_id])   
+           
         erb :'/reviews/all'
     end
 

@@ -1,6 +1,7 @@
 class TracksController < ApplicationController
-    get '/show' do
-        erb :'/tracks/show'
+    get '/tracks/:id' do
+        @track = Track.find(params[:id])
+        erb :'tracks/show'
     end
 
     get '/tracks' do
