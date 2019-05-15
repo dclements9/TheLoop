@@ -34,8 +34,12 @@ class ReviewsController < ApplicationController
     end
 
     get '/all_user_reviews' do
-        @reviews = Review.all
-        @user = User.find(session[:user_id])
-        erb :'/reviews/user_all'
+        if  !session[:user_id]
+            redirect '/failure'    
+        else
+            @reviews = Review.all
+            @user = User.find(session[:user_id])
+            erb :'/reviews/user_all'
+        end
     end
 end

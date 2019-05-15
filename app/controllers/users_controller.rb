@@ -33,12 +33,11 @@ class UsersController < ApplicationController
     end
 
     get "/home" do
-        
-        @user = User.find(session[:user_id])
-        if  @user
-            erb :'/users/home'
+        if  !session[:user_id]
+            redirect '/failure'    
         else
-            redirect '/failure'
+            @user = User.find(session[:user_id])
+            erb :'/users/home'
         end
     end
 
