@@ -5,9 +5,9 @@
 Select the track to review:
 
 <%if !@tracks.empty?%>
-        <input type="radio" name="track_radio" value="">None</input>
+        <input type="radio" name="track_radio" value="" checked>None</input>
     <%@tracks.each do |track|%>
-        <input type="radio" name="track_radio" value="<%=track.name%>" id="<%=track.id%>"><%=track.name%></input>
+        <input type="radio" name="track_radio" value="<%=track.id%>" id="<%=track.id%>"><%=track.name%></input>
     <%end%>
     <br><br>
 Or
