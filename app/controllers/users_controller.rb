@@ -22,18 +22,11 @@ class UsersController < ApplicationController
     end
 
     post "/login" do
-        @user = User.find_by(username: params[:username])
-    
-        if @user && @user.authenticate(params[:password])
-          session[:user_id] = @user.id
-          redirect "/home"
-        else
-          redirect "/failure"
-        end
+        login(params[:username], params[:password])    
     end
 
     get "/home" do
-        if  !session[:user_id]
+        if  !logged_in?
             redirect '/failure'    
         else
             @user = User.find(session[:user_id])
