@@ -1,5 +1,8 @@
 <h1> Create a Review: </h1>
-
+<br>
+<%= "No track selected. Please select a track or create a new one." if @params_check == false%>
+<%= "Selected and Created a new track. Please only choose one." if @params_single_checked == false%>
+<br><br><br>
 <form action='/new' method='POST'>
 
 Select the track to review:

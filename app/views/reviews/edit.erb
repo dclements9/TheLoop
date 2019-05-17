@@ -1,5 +1,9 @@
 <h1> Edit Review <%=@review.id%></h1>
-<%=binding.pry%>
+<br>
+<%= "No track selected. Please select a track or create a new one." if @params_check == false%>
+<%= "Selected and Created a new track. Please only choose one." if @params_single_checked == false%>
+<br><br><br>
+
 <form action='/reviews/<%=@review.id%>' method='POST'>
 <input id="hidden" type="hidden" name="_method" value="patch"> 
 
