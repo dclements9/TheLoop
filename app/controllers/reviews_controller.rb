@@ -1,20 +1,10 @@
 class ReviewsController < ApplicationController
-    get '/new' do
+    get '/reviews/new' do
         @tracks = Track.all
         erb :'/reviews/new'
     end
 
-    get '/reviews/:id' do
-        if !logged_in?
-            erb :'/users/not_logged_in'
-        else
-            @review = Review.find(params[:id])
-            @user = User.find(session[:user_id])
-            erb :'reviews/show'
-        end
-    end
-
-    post '/new' do
+    post '/reviews/new' do
         @tracks = Track.all
         if params[:track_radio] == "" && params[:track][:name] == ""
             @params_check = false
@@ -38,13 +28,13 @@ class ReviewsController < ApplicationController
         end
     end
 
-    get '/all' do
+    get '/reviews/all' do
         @reviews = Review.all
         @user = User.find(session[:user_id])   
         erb :'/reviews/all'
     end
 
-    get '/all_user_reviews' do
+    get '/reviews/all_user_reviews' do
         if  !logged_in?
             redirect '/failure'    
         else
@@ -54,6 +44,16 @@ class ReviewsController < ApplicationController
         end
     end
 
+    get '/reviews/:id' do
+        if !logged_in?
+            erb :'/users/not_logged_in'
+        else
+            @review = Review.find(params[:id])
+            @user = User.find(session[:user_id])
+            erb :'reviews/show'
+        end
+    end
+    
     get '/reviews/:id/edit' do
         @tracks = Track.all
         if !logged_in?
