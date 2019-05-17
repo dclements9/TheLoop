@@ -12,8 +12,6 @@ class ApplicationController < Sinatra::Base
   get "/" do
     erb :welcome
   end
-
-## Need to implement
   helpers do
     def logged_in?
       !!current_user
