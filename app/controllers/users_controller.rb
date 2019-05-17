@@ -27,7 +27,7 @@ class UsersController < ApplicationController
 
     get "/home" do
         if  !logged_in?
-            redirect '/failure'    
+            erb :'/users/not_logged_in'   
         else
             @user = User.find(session[:user_id])
             erb :'/users/home'

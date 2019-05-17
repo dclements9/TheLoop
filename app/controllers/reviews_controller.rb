@@ -6,7 +6,7 @@ class ReviewsController < ApplicationController
 
     get '/reviews/:id' do
         if !logged_in?
-            redirect '/failure'
+            erb :'/users/not_logged_in'
         else
             @review = Review.find(params[:id])
             @user = User.find(session[:user_id])
