@@ -41,4 +41,38 @@ class ReviewsController < ApplicationController
         end
     end
 
+    get '/reviews/:id/edit' do
+        @tracks = Track.all
+        if !logged_in?
+            redirect '/failure'
+        else
+            if @review = current_user.reviews.find_by(params[:id ])
+                @user = User.find(session[:user_id])
+                erb :'reviews/edit'
+            else
+                redirect '/all_user_reviews'
+            end
+        end
+    end
+
+    patch '/reviews/:id' do
+        @review = Review.find(params[:id])
+        @review.update(params[:review])
+                if !params[:owner][:name].empty?
+                @pet.owner = Owner.create(name: params[:owner][:name])
+                end
+        @review.save
+        redirect "reviews/#{@review.id}"
+    end
+
+    get '/reviews/:id/delete' do
+        if !logged_in?
+            redirect '/failure'
+        else
+            @review = Review.find(params[:id])
+            @review.destroy
+            redirect '/home'
+        end
+    end
+
 end

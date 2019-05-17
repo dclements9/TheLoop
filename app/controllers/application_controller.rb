@@ -16,7 +16,7 @@ class ApplicationController < Sinatra::Base
 ## Need to implement
   helpers do
     def logged_in?
-      !!session[:user_id]
+      !!current_user
     end
     
     def login(username, password)
@@ -31,7 +31,7 @@ class ApplicationController < Sinatra::Base
     end
 
     def current_user
-      User.find(session[:user_id])
+      @current_user ||= User.find_by(username: session[:username]) if session[:username]
     end
   end
 end

@@ -1,5 +1,7 @@
 <h2>Create a New User:</h2>
-
+<%= "Username #{@user.errors.messages[:username][0]}." if @user && @user.errors.messages[:username]%>
+<%= "Password #{@user.errors.messages[:password][0]}." if @user && @user.errors.messages[:password]%>
+<br><br>
 <form action="/signup" method="POST">
 <label for="username">Username: </label>
 <input type="text" id="username" name="username" placeholder="username">
