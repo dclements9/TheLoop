@@ -1,4 +1,8 @@
 <h1> Edit Review <%=@review.id%></h1>
+<p style="text-align: right;">
+<a href="/home">Home</a>
+<a href="/logout">Logout</a> 
+</p>
 <br>
 <%= "No track selected. Please select a track or create a new one." if @params_check == false%>
 <%= "Selected and Created a new track. Please only choose one." if @params_single_checked == false%>

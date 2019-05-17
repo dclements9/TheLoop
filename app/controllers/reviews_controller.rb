@@ -5,9 +5,13 @@ class ReviewsController < ApplicationController
     end
 
     get '/reviews/:id' do
-        @review = Review.find(params[:id])
-        @user = User.find(session[:user_id])
-        erb :'reviews/show'
+        if !logged_in?
+            redirect '/failure'
+        else
+            @review = Review.find(params[:id])
+            @user = User.find(session[:user_id])
+            erb :'reviews/show'
+        end
     end
 
     post '/new' do
