@@ -7,6 +7,7 @@
 <a href="/home">Home</a>
 <a href="/logout">Logout</a> 
 </p>
+<%@post_user = User.find_by(id: @review.user_id)%>
 <br><br>
     <a href="/tracks/<%=@review.track_id%>">Track Name: <%=@review.track_name%></a>
 <br><br>
@@ -22,7 +23,7 @@ Crowds Rating: <%=@review.crowds%>
 <br><br>
 Comments: <%=@review.comments%>
 <br><br>
-By: <%=@user.username%>
+By: <%=@post_user.username%>
 <br><br><br><br>
 <a href="/reviews/<%=@review.id%>/edit">Edit Post</a>
 <br>

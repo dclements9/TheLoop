@@ -8,6 +8,7 @@
 <a href="/logout">Logout</a> 
 </p>
 <%@reviews.each do |review|%>
+<%@post_user = User.find_by(id: review.user_id)%>
 <p>
 <br><br>
     <a href="/reviews/<%=review.id%>">Review #:<%=review.id%></a>
@@ -26,6 +27,6 @@
     <br><br>
     Comments: <%=review.comments%>
     <br><br>
-    By: <%=@user.username%>
+    By: <%=@post_user.username%>
 </p>
 <%end%>

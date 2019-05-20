@@ -1,5 +1,6 @@
 <head>
   <title>The Loop - Edit Review #: <%=@review.id%></title>
+  <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
 </head>
 
 <h1> Edit Review <%=@review.id%></h1>
@@ -41,42 +42,76 @@ Or
 <input type="text" id="track_address" name="track[address]" placeholder="Track Address">
 <br><br>
 <h3>Select your ratings below:</h3>
-Lowest 1 <-----> 5 Highest
 <br><br>
-<label for=overall>Overall:</label>
-<input type="radio" id="overall1" name="review[overall]" value="1">1
-<input type="radio" id="overall2" name="review[overall]" value="2">2
-<input type="radio" id="overall3" name="review[overall]" value="3">3
-<input type="radio" id="overall4" name="review[overall]" value="4">4
-<input type="radio" id="overall5" name="review[overall]" value="5">5
+<h3>Overall:</h3>
+<div class="stars">
+	    <input class="star star-5" id="overall_star-5" type="radio" name="review[overall]" value="5"/>
+	    <label class="star star-5" for="overall_star-5"></label>
+	    <input class="star star-4" id="overall_star-4" type="radio" name="review[overall]" value="4"/>
+	    <label class="star star-4" for="overall_star-4"></label>
+	    <input class="star star-3" id="overall_star-3" type="radio" name="review[overall]" value="3"/>
+	    <label class="star star-3" for="overall_star-3"></label>
+	    <input class="star star-2" id="overall_star-2" type="radio" name="review[overall]" value="2"/>
+	    <label class="star star-2" for="overall_star-2"></label>
+	    <input class="star star-1" id="overall_star-1" type="radio" name="review[overall]" value="1"/>
+	    <label class="star star-1" for="overall_star-1"></label>  
+	</div>
 <br><br>
-<label for=vendors>Vendors:</label>
-<input type="radio" id="vendors1" name="review[vendors]" value="1">1
-<input type="radio" id="vendors2" name="review[vendors]" value="2">2
-<input type="radio" id="vendors3" name="review[vendors]" value="3">3
-<input type="radio" id="vendors4" name="review[vendors]" value="4">4
-<input type="radio" id="vendors5" name="review[vendors]" value="5">5
+<h3>Vendors:</h3>
+<div class="stars">
+	    <input class="star star-5" id="vendors_star-5" type="radio" name="review[vendors]" value="5"/>
+	    <label class="star star-5" for="vendors_star-5"></label>
+	    <input class="star star-4" id="vendors_star-4" type="radio" name="review[vendors]" value="4"/>
+	    <label class="star star-4" for="vendors_star-4"></label>
+	    <input class="star star-3" id="vendors_star-3" type="radio" name="review[vendors]" value="3"/>
+	    <label class="star star-3" for="vendors_star-3"></label>
+	    <input class="star star-2" id="vendors_star-2" type="radio" name="review[vendors]" value="2"/>
+	    <label class="star star-2" for="vendors_star-2"></label>
+	    <input class="star star-1" id="vendors_star-1" type="radio" name="review[vendors]" value="1"/>
+	    <label class="star star-1" for="vendors_star-1"></label>  
+	</div>
 <br><br>
-<label for=child_friendly>Child Friendly:</label>
-<input type="radio" id="child_friendly1" name="review[child_friendly]" value="1">1
-<input type="radio" id="child_friendly2" name="review[child_friendly]" value="2">2
-<input type="radio" id="child_friendly3" name="review[child_friendly]" value="3">3
-<input type="radio" id="child_friendly4" name="review[child_friendly]" value="4">4
-<input type="radio" id="child_friendly5" name="review[child_friendly]" value="5">5
+<h3>Child Friendly:</h3>
+<div class="stars">	  
+	    <input class="star star-5" id="child_friendly_star-5" type="radio" name="review[child_friendly]" value="5"/>
+	    <label class="star star-5" for="child_friendly_star-5"></label>
+	    <input class="star star-4" id="child_friendly_star-4" type="radio" name="review[child_friendly]" value="4"/>
+	    <label class="star star-4" for="child_friendly_star-4"></label>
+	    <input class="star star-3" id="child_friendly_star-3" type="radio" name="review[child_friendly]" value="3"/>
+	    <label class="star star-3" for="child_friendly_star-3"></label>
+	    <input class="star star-2" id="child_friendly_star-2" type="radio" name="review[child_friendly]" value="2"/>
+	    <label class="star star-2" for="child_friendly_star-2"></label>
+	    <input class="star star-1" id="child_friendly_star-1" type="radio" name="review[child_friendly]" value="1"/>
+	    <label class="star star-1" for="child_friendly_star-1"></label>	  
+	</div>
 <br><br>
-<label for=walkability>Terrain/Walkability:</label>
-<input type="radio" id="walkability1" name="review[walkability]" value="1">1
-<input type="radio" id="walkability2" name="review[walkability]" value="2">2
-<input type="radio" id="walkability3" name="review[walkability]" value="3">3
-<input type="radio" id="walkability4" name="review[walkability]" value="4">4
-<input type="radio" id="walkability5" name="review[walkability]" value="5">5
+<h3>Terrain/Walkability:</h3>
+<div class="stars">	  
+	    <input class="star star-5" id="walkability_star-5" type="radio" name="review[walkability]" value="5"/>
+	    <label class="star star-5" for="walkability_star-5"></label>
+	    <input class="star star-4" id="walkability_star-4" type="radio" name="review[walkability]" value="4"/>
+	    <label class="star star-4" for="walkability_star-4"></label>
+	    <input class="star star-3" id="walkability_star-3" type="radio" name="review[walkability]" value="3"/>
+	    <label class="star star-3" for="walkability_star-3"></label>
+	    <input class="star star-2" id="walkability_star-2" type="radio" name="review[walkability]" value="2"/>
+	    <label class="star star-2" for="walkability_star-2"></label>
+	    <input class="star star-1" id="walkability_star-1" type="radio" name="review[walkability]" value="1"/>
+	    <label class="star star-1" for="walkability_star-1"></label> 
+	</div>
 <br><br>
-<label for=crowds>Crowds:</label>
-<input type="radio" id="crowds1" name="review[crowds]" value="1">1
-<input type="radio" id="crowds2" name="review[crowds]" value="2">2
-<input type="radio" id="crowds3" name="review[crowds]" value="3">3
-<input type="radio" id="crowds4" name="review[crowds]" value="4">4
-<input type="radio" id="crowds5" name="review[crowds]" value="5">5
+<h3>Crowds:</h3>
+<div class="stars">  
+	    <input class="star star-5" id="crowds_star-5" type="radio" name="review[crowds]" value="5"/>
+	    <label class="star star-5" for="crowds_star-5"></label>
+	    <input class="star star-4" id="crowds_star-4" type="radio" name="review[crowds]" value="4"/>
+	    <label class="star star-4" for="crowds_star-4"></label>
+	    <input class="star star-3" id="crowds_star-3" type="radio" name="review[crowds]" value="3"/>
+	    <label class="star star-3" for="crowds_star-3"></label>
+	    <input class="star star-2" id="crowds_star-2" type="radio" name="review[crowds]" value="2"/>
+	    <label class="star star-2" for="crowds_star-2"></label>
+	    <input class="star star-1" id="crowds_star-1" type="radio" name="review[crowds]" value="1"/>
+	    <label class="star star-1" for="crowds_star-1"></label>
+	</div>
 <p>
 <br>
 <label for=comments>Comments:</label>

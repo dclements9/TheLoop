@@ -5,21 +5,24 @@ class ReviewsController < ApplicationController
     end
 
     post '/reviews/new' do
+     
         @tracks = Track.all
+        
         if params[:track_radio] == "" && params[:track][:name] == ""
             @params_check = false
             erb :'/reviews/new'
-        elsif params[:track_radio] != "" && params[:track][:name] != ""
+        elsif !@tracks.empty? && params[:track_radio] != "" && params[:track][:name] != ""
             @params_single_checked = false
             erb :'/reviews/new'
         else
             @review = Review.new(params[:review])
-            if params[:track_radio] != ""
+            if !@tracks.empty? && params[:track_radio] != ""
                 @track = Track.find(params[:track_radio])
             elsif params[:track][:name] != ""
                 @track = Track.create(params[:track]) 
             end
             @review.track_name = @track.name
+           
             @review.user_id=session[:user_id]
 
             @review.track_id=@track.id     
@@ -56,14 +59,16 @@ class ReviewsController < ApplicationController
     
     get '/reviews/:id/edit' do
         @tracks = Track.all
+        @review = Review.find_by(id: params[:id])
         if !logged_in?
             redirect '/failure'
         else
-            if @review = current_user.reviews.find_by(params[:id ])
-                @user = User.find(session[:user_id])
+           
+            if @review == current_user.reviews.find_by(params[:id])
+                @user = User.find_by(username: session[:username])
                 erb :'reviews/edit'
             else
-                redirect '/all_user_reviews'
+                redirect '/reviews/all_user_reviews'
             end
         end
     end
@@ -79,8 +84,8 @@ class ReviewsController < ApplicationController
             erb :'/reviews/edit'
         else
             @review.update(params[:review])
-            if params[:track_radio] !=0 && params[:track][:name]
-                @track = Track.find_by(params[:track_radio])
+            if params[:track_radio] != "" && params[:track][:name]
+                @track = Track.find_by(id: params[:track_radio])
                 @review.track_name = @track.name
             elsif params[:track][:name] != ""
                 @track = Track.create(params[:track]) 
@@ -95,10 +100,14 @@ class ReviewsController < ApplicationController
         if !logged_in?
             redirect '/failure'
         else
-            @review = Review.find(params[:id])
-            @review.destroy
-            redirect '/home'
+            @review = Review.find_by(id: params[:id])
+            if @review == current_user.reviews.find_by(params[:id])
+                @user = User.find_by(username: session[:username])
+                @review.destroy
+                redirect '/home'
+            else
+                redirect '/reviews/all_user_reviews'
+            end
         end
     end
-
 end
