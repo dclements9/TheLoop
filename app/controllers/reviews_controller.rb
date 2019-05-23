@@ -60,6 +60,7 @@ class ReviewsController < ApplicationController
     get '/reviews/:id/edit' do
         @tracks = Track.all
         @review = Review.find_by(id: params[:id])
+        # binding.pry
         if !logged_in?
             redirect '/failure'
         else
@@ -68,7 +69,7 @@ class ReviewsController < ApplicationController
                 @user = User.find_by(username: session[:username])
                 erb :'reviews/edit'
             else
-                redirect '/reviews/all_user_reviews'
+                redirect '/reviews/failure_logged_in'
             end
         end
     end

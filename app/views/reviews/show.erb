@@ -25,6 +25,9 @@ Comments: <%=@review.comments%>
 <br><br>
 By: <%=@post_user.username%>
 <br><br><br><br>
-<a href="/reviews/<%=@review.id%>/edit">Edit Post</a>
-<br>
-<a href="/reviews/<%=@review.id%>/delete">Delete Post</a>
+
+<% if @review.user_id == @user.id%>
+  <a href="/reviews/<%=@review.id%>/edit">Edit Post</a>
+  <br>
+  <a href="/reviews/<%=@review.id%>/delete">Delete Post</a>
+<%end%>
