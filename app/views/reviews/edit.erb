@@ -15,7 +15,6 @@
 
 <form action='/reviews/<%=@review.id%>' method='POST'>
 <input id="hidden" type="hidden" name="_method" value="patch"> 
-
 Select the track to review:
 
 <%if !@tracks.empty?%>
@@ -50,8 +49,13 @@ Or
 <%overall_counter = 5%>
 <div class="stars">
 <% while overall_counter >= 1%>
-	<input class="star star-<%=overall_counter%>" id="overall_star-<%=overall_counter%>" type="radio" name="review[overall]" value="<%=overall_counter%>"/>
-	<label class="star star-<%=overall_counter%>" for="overall_star-<%=overall_counter%>"></label>
+	<%if @review.overall == overall_counter%>
+		<input class="star star-<%=overall_counter%>" id="overall_star-<%=overall_counter%>" type="radio" name="review[overall]" value="<%=overall_counter%>"  checked/>
+		<label class="star star-<%=overall_counter%>" for="overall_star-<%=overall_counter%>"></label>
+	<%else%>
+		<input class="star star-<%=overall_counter%>" id="overall_star-<%=overall_counter%>" type="radio" name="review[overall]" value="<%=overall_counter%>"/>
+		<label class="star star-<%=overall_counter%>" for="overall_star-<%=overall_counter%>"></label>
+	<%end%>
 <%overall_counter -= 1%>
 <%end%>
 </div>
@@ -60,8 +64,13 @@ Or
 <%vendors_counter = 5%>
 <div class="stars">
 <% while vendors_counter >= 1%>
-	<input class="star star-<%=vendors_counter%>" id="vendors_star-<%=vendors_counter%>" type="radio" name="review[vendors]" value="<%=vendors_counter%>"/>
-	<label class="star star-<%=vendors_counter%>" for="vendors_star-<%=vendors_counter%>"></label>
+	<%if @review.vendors == vendors_counter%>
+		<input class="star star-<%=vendors_counter%>" id="vendors_star-<%=vendors_counter%>" type="radio" name="review[vendors]" value="<%=vendors_counter%>" checked/>
+		<label class="star star-<%=vendors_counter%>" for="vendors_star-<%=vendors_counter%>"></label>
+	<%else%>
+		<input class="star star-<%=vendors_counter%>" id="vendors_star-<%=vendors_counter%>" type="radio" name="review[vendors]" value="<%=vendors_counter%>"/>
+		<label class="star star-<%=vendors_counter%>" for="vendors_star-<%=vendors_counter%>"></label>
+	<%end%>
 <%vendors_counter -= 1%>
 <%end%>
 </div>
@@ -70,8 +79,13 @@ Or
 <%child_friendly_counter = 5%>
 <div class="stars">
 <% while child_friendly_counter >= 1%>
-	<input class="star star-<%=child_friendly_counter%>" id="child_friendly_star-<%=child_friendly_counter%>" type="radio" name="review[child_friendly]" value="<%=child_friendly_counter%>"/>
-	<label class="star star-<%=child_friendly_counter%>" for="child_friendly_star-<%=child_friendly_counter%>"></label>
+	<%if @review.child_friendly == child_friendly_counter%>
+		<input class="star star-<%=child_friendly_counter%>" id="child_friendly_star-<%=child_friendly_counter%>" type="radio" name="review[child_friendly]" value="<%=child_friendly_counter%>" checked/>
+		<label class="star star-<%=child_friendly_counter%>" for="child_friendly_star-<%=child_friendly_counter%>"></label>
+	<%else%>
+		<input class="star star-<%=child_friendly_counter%>" id="child_friendly_star-<%=child_friendly_counter%>" type="radio" name="review[child_friendly]" value="<%=child_friendly_counter%>"/>
+		<label class="star star-<%=child_friendly_counter%>" for="child_friendly_star-<%=child_friendly_counter%>"></label>
+	<%end%>
 <%child_friendly_counter -= 1%>
 <%end%>
 </div>
@@ -80,8 +94,13 @@ Or
 <%walkability_counter = 5%>
 <div class="stars">
 <% while walkability_counter >= 1%>
-	<input class="star star-<%=walkability_counter%>" id="walkability_star-<%=walkability_counter%>" type="radio" name="review[walkability]" value="<%=walkability_counter%>"/>
-	<label class="star star-<%=walkability_counter%>" for="walkability_star-<%=walkability_counter%>"></label>
+	<%if @review.walkability == walkability_counter%>
+		<input class="star star-<%=walkability_counter%>" id="walkability_star-<%=walkability_counter%>" type="radio" name="review[walkability]" value="<%=walkability_counter%>"  checked/>
+		<label class="star star-<%=walkability_counter%>" for="walkability_star-<%=walkability_counter%>"></label>
+	<%else%>
+		<input class="star star-<%=walkability_counter%>" id="walkability_star-<%=walkability_counter%>" type="radio" name="review[walkability]" value="<%=walkability_counter%>"/>
+		<label class="star star-<%=walkability_counter%>" for="walkability_star-<%=walkability_counter%>"></label>
+	<%end%>
 <%walkability_counter -= 1%>
 <%end%>
 </div>
@@ -90,8 +109,13 @@ Or
 <%crowds_counter = 5%>
 <div class="stars">
 <% while crowds_counter >= 1%>
-	<input class="star star-<%=crowds_counter%>" id="crowds_star-<%=crowds_counter%>" type="radio" name="review[crowds]" value="<%=crowds_counter%>"/>
-	<label class="star star-<%=crowds_counter%>" for="crowds_star-<%=crowds_counter%>"></label>
+	<%if @review.crowds == crowds_counter%>
+		<input class="star star-<%=crowds_counter%>" id="crowds_star-<%=crowds_counter%>" type="radio" name="review[crowds]" value="<%=crowds_counter%>" checked/>
+		<label class="star star-<%=crowds_counter%>" for="crowds_star-<%=crowds_counter%>"></label>
+	<%else%>
+		<input class="star star-<%=crowds_counter%>" id="crowds_star-<%=crowds_counter%>" type="radio" name="review[crowds]" value="<%=crowds_counter%>"/>
+		<label class="star star-<%=crowds_counter%>" for="crowds_star-<%=crowds_counter%>"></label>
+	<%end%>
 <%crowds_counter -= 1%>
 <%end%>
 </div>
@@ -99,9 +123,7 @@ Or
 <br>
 <label for=comments>Comments:</label>
 <br>
-<%# Need Value instead of placeholder %>
-<textarea id="comments" name="review[comments]" rows="7" cols="50" placeholder="<%=@review.comments%>"></textarea>
+<textarea id="comments" name="review[comments]" rows="7" cols="50"><%=@review.comments%></textarea>
 </p>
-
 <input type="submit" value="Submit Edited Review">
 </form>
