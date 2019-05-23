@@ -18,6 +18,7 @@
 Select the track to review:
 
 <%if !@tracks.empty?%>
+<input type="radio" name="track_radio" value="">None</input>
     <%@tracks.each do |track|%>
 		<%if track.name == @current_track.name%>
         	<input type="radio" name="track_radio" checked="checked" value="<%=track.id%>" id="<%=track.id%>"><%=track.name%></input>
