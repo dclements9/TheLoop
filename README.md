@@ -3,13 +3,13 @@
 The Loop allows a user to create an account, log in, post a review on a motorsports venue, and read other reviews.
 
 ## Installation
-
+Run
 ```ruby
-execute bundle install
+bundle install
 ```
-
+And
 ```ruby
-execute shotgun
+shotgun
 ```
 Navigate to 127.0.0.1:9393 in a web browser.
 
