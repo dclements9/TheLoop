@@ -19,9 +19,12 @@
 Select the track to review:
 
 <%if !@tracks.empty?%>
-        <input type="radio" name="track_radio" value="" checked>None</input>
     <%@tracks.each do |track|%>
-        <input type="radio" name="track_radio" value="<%=track.id%>" id="<%=track.id%>"><%=track.name%></input>
+		<%if track.name == @current_track.name%>
+        	<input type="radio" name="track_radio" checked="checked" value="<%=track.id%>" id="<%=track.id%>"><%=track.name%></input>
+		<%else%>
+			<input type="radio" name="track_radio" value="<%=track.id%>" id="<%=track.id%>"><%=track.name%></input>
+		<%end%>
     <%end%>
     <br><br>
 Or
@@ -45,6 +48,7 @@ Or
 <br><br>
 <h3>Overall:</h3>
 <div class="stars">
+
 	    <input class="star star-5" id="overall_star-5" type="radio" name="review[overall]" value="5"/>
 	    <label class="star star-5" for="overall_star-5"></label>
 	    <input class="star star-4" id="overall_star-4" type="radio" name="review[overall]" value="4"/>
@@ -116,7 +120,7 @@ Or
 <br>
 <label for=comments>Comments:</label>
 <br>
-<textarea id="comments" name="review[comments]" rows="7" cols="50" placeholder="Write your comments here"></textarea>
+<textarea id="comments" name="review[comments]" rows="7" cols="50" placeholder="<%=@review.comments%>"></textarea>
 </p>
 
 <input type="submit" value="Submit Edited Review">

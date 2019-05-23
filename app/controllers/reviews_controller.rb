@@ -64,12 +64,13 @@ class ReviewsController < ApplicationController
         if !logged_in?
             redirect '/failure'
         else
-           
-            if @review == current_user.reviews.find_by(params[:id])
+           ##Why find and not find by??
+            if @review == current_user.reviews.find(params[:id])
                 @user = User.find_by(username: session[:username])
+                @current_track = Track.find(@review.track_id)
                 erb :'reviews/edit'
             else
-                redirect '/reviews/failure_logged_in'
+                erb :'/reviews/failure_logged_in'
             end
         end
     end
