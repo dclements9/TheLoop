@@ -7,7 +7,8 @@ class UsersController < ApplicationController
     post '/signup' do
         @user = User.new(username: params[:username], password: params[:password])
         if @user.save
-            redirect '/login'
+            login(params[:username], params[:password])
+            redirect '/home'
         else
             erb :'/users/signup'
         end
