@@ -47,79 +47,59 @@ Or
 <h3>Select your ratings below:</h3>
 <br><br>
 <h3>Overall:</h3>
+<%overall_counter = 5%>
 <div class="stars">
-
-	    <input class="star star-5" id="overall_star-5" type="radio" name="review[overall]" value="5"/>
-	    <label class="star star-5" for="overall_star-5"></label>
-	    <input class="star star-4" id="overall_star-4" type="radio" name="review[overall]" value="4"/>
-	    <label class="star star-4" for="overall_star-4"></label>
-	    <input class="star star-3" id="overall_star-3" type="radio" name="review[overall]" value="3"/>
-	    <label class="star star-3" for="overall_star-3"></label>
-	    <input class="star star-2" id="overall_star-2" type="radio" name="review[overall]" value="2"/>
-	    <label class="star star-2" for="overall_star-2"></label>
-	    <input class="star star-1" id="overall_star-1" type="radio" name="review[overall]" value="1"/>
-	    <label class="star star-1" for="overall_star-1"></label>  
-	</div>
+<% while overall_counter >= 1%>
+	<input class="star star-<%=overall_counter%>" id="overall_star-<%=overall_counter%>" type="radio" name="review[overall]" value="<%=overall_counter%>"/>
+	<label class="star star-<%=overall_counter%>" for="overall_star-<%=overall_counter%>"></label>
+<%overall_counter -= 1%>
+<%end%>
+</div>
 <br><br>
 <h3>Vendors:</h3>
+<%vendors_counter = 5%>
 <div class="stars">
-	    <input class="star star-5" id="vendors_star-5" type="radio" name="review[vendors]" value="5"/>
-	    <label class="star star-5" for="vendors_star-5"></label>
-	    <input class="star star-4" id="vendors_star-4" type="radio" name="review[vendors]" value="4"/>
-	    <label class="star star-4" for="vendors_star-4"></label>
-	    <input class="star star-3" id="vendors_star-3" type="radio" name="review[vendors]" value="3"/>
-	    <label class="star star-3" for="vendors_star-3"></label>
-	    <input class="star star-2" id="vendors_star-2" type="radio" name="review[vendors]" value="2"/>
-	    <label class="star star-2" for="vendors_star-2"></label>
-	    <input class="star star-1" id="vendors_star-1" type="radio" name="review[vendors]" value="1"/>
-	    <label class="star star-1" for="vendors_star-1"></label>  
-	</div>
+<% while vendors_counter >= 1%>
+	<input class="star star-<%=vendors_counter%>" id="vendors_star-<%=vendors_counter%>" type="radio" name="review[vendors]" value="<%=vendors_counter%>"/>
+	<label class="star star-<%=vendors_counter%>" for="vendors_star-<%=vendors_counter%>"></label>
+<%vendors_counter -= 1%>
+<%end%>
+</div>
 <br><br>
 <h3>Child Friendly:</h3>
-<div class="stars">	  
-	    <input class="star star-5" id="child_friendly_star-5" type="radio" name="review[child_friendly]" value="5"/>
-	    <label class="star star-5" for="child_friendly_star-5"></label>
-	    <input class="star star-4" id="child_friendly_star-4" type="radio" name="review[child_friendly]" value="4"/>
-	    <label class="star star-4" for="child_friendly_star-4"></label>
-	    <input class="star star-3" id="child_friendly_star-3" type="radio" name="review[child_friendly]" value="3"/>
-	    <label class="star star-3" for="child_friendly_star-3"></label>
-	    <input class="star star-2" id="child_friendly_star-2" type="radio" name="review[child_friendly]" value="2"/>
-	    <label class="star star-2" for="child_friendly_star-2"></label>
-	    <input class="star star-1" id="child_friendly_star-1" type="radio" name="review[child_friendly]" value="1"/>
-	    <label class="star star-1" for="child_friendly_star-1"></label>	  
-	</div>
+<%child_friendly_counter = 5%>
+<div class="stars">
+<% while child_friendly_counter >= 1%>
+	<input class="star star-<%=child_friendly_counter%>" id="child_friendly_star-<%=child_friendly_counter%>" type="radio" name="review[child_friendly]" value="<%=child_friendly_counter%>"/>
+	<label class="star star-<%=child_friendly_counter%>" for="child_friendly_star-<%=child_friendly_counter%>"></label>
+<%child_friendly_counter -= 1%>
+<%end%>
+</div>
 <br><br>
 <h3>Terrain/Walkability:</h3>
-<div class="stars">	  
-	    <input class="star star-5" id="walkability_star-5" type="radio" name="review[walkability]" value="5"/>
-	    <label class="star star-5" for="walkability_star-5"></label>
-	    <input class="star star-4" id="walkability_star-4" type="radio" name="review[walkability]" value="4"/>
-	    <label class="star star-4" for="walkability_star-4"></label>
-	    <input class="star star-3" id="walkability_star-3" type="radio" name="review[walkability]" value="3"/>
-	    <label class="star star-3" for="walkability_star-3"></label>
-	    <input class="star star-2" id="walkability_star-2" type="radio" name="review[walkability]" value="2"/>
-	    <label class="star star-2" for="walkability_star-2"></label>
-	    <input class="star star-1" id="walkability_star-1" type="radio" name="review[walkability]" value="1"/>
-	    <label class="star star-1" for="walkability_star-1"></label> 
-	</div>
+<%walkability_counter = 5%>
+<div class="stars">
+<% while walkability_counter >= 1%>
+	<input class="star star-<%=walkability_counter%>" id="walkability_star-<%=walkability_counter%>" type="radio" name="review[walkability]" value="<%=walkability_counter%>"/>
+	<label class="star star-<%=walkability_counter%>" for="walkability_star-<%=walkability_counter%>"></label>
+<%walkability_counter -= 1%>
+<%end%>
+</div>
 <br><br>
 <h3>Crowds:</h3>
-<div class="stars">  
-	    <input class="star star-5" id="crowds_star-5" type="radio" name="review[crowds]" value="5"/>
-	    <label class="star star-5" for="crowds_star-5"></label>
-	    <input class="star star-4" id="crowds_star-4" type="radio" name="review[crowds]" value="4"/>
-	    <label class="star star-4" for="crowds_star-4"></label>
-	    <input class="star star-3" id="crowds_star-3" type="radio" name="review[crowds]" value="3"/>
-	    <label class="star star-3" for="crowds_star-3"></label>
-	    <input class="star star-2" id="crowds_star-2" type="radio" name="review[crowds]" value="2"/>
-	    <label class="star star-2" for="crowds_star-2"></label>
-	    <input class="star star-1" id="crowds_star-1" type="radio" name="review[crowds]" value="1"/>
-	    <label class="star star-1" for="crowds_star-1"></label>
-	</div>
+<%crowds_counter = 5%>
+<div class="stars">
+<% while crowds_counter >= 1%>
+	<input class="star star-<%=crowds_counter%>" id="crowds_star-<%=crowds_counter%>" type="radio" name="review[crowds]" value="<%=crowds_counter%>"/>
+	<label class="star star-<%=crowds_counter%>" for="crowds_star-<%=crowds_counter%>"></label>
+<%crowds_counter -= 1%>
+<%end%>
+</div>
 <p>
 <br>
 <label for=comments>Comments:</label>
 <br>
+<%# Need Value instead of placeholder %>
 <textarea id="comments" name="review[comments]" rows="7" cols="50" placeholder="<%=@review.comments%>"></textarea>
 </p>
 
