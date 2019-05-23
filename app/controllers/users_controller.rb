@@ -23,7 +23,16 @@ class UsersController < ApplicationController
     end
 
     post "/login" do
-        login(params[:username], params[:password])    
+            @user = User.find_by(username: params[:username])
+        if !@user
+            @username_error_message = "Username is incorrect."
+            erb :'/users/login'
+        elsif !@user.authenticate(params[:password]) 
+            @password_error_message = "Password is incorrect."
+            erb :'/users/login'
+        else
+            login(params[:username], params[:password])      
+        end
     end
 
     get "/home" do

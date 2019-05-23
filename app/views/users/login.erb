@@ -4,6 +4,9 @@
 
 <h2>Enter usename and password to login:</h2>
 
+<%="#{@username_error_message}" if @username_error_message%>
+<%="#{@password_error_message}" if @password_error_message%>
+<br><br>
 <form action="/login" method="POST">
 <label for="username">Username: </label>
 <input type="text" id="username" name="username" placeholder="username">
