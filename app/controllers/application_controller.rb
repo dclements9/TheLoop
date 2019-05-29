@@ -33,5 +33,9 @@ class ApplicationController < Sinatra::Base
     def current_user
       @current_user ||= User.find_by(username: session[:username]) if session[:username]
     end
+
+    def find_review
+      @review = Review.find_by(id: params[:id])
+    end
   end
 end

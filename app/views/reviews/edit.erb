@@ -3,7 +3,7 @@
   <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
 </head>
 
-<h1> Edit Review <%=@review.id%></h1>
+<h1> Edit Review for <%=@review.track_name%></h1>
 <p style="text-align: right;">
 <a href="/home">Home</a>
 <a href="/logout">Logout</a> 
@@ -11,40 +11,10 @@
 <br>
 <%= "No track selected. Please select a track or create a new one." if @params_check == false%>
 <%= "Selected and Created a new track. Please only choose one." if @params_single_checked == false%>
-<br><br><br>
-
+<br>
 <form action='/reviews/<%=@review.id%>' method='POST'>
 <input id="hidden" type="hidden" name="_method" value="patch"> 
-Select the track to review:
-
-<%if !@tracks.empty?%>
-<input type="radio" name="track_radio" value="">None</input>
-    <%@tracks.each do |track|%>
-		<%if track.name == @current_track.name%>
-        	<input type="radio" name="track_radio" checked="checked" value="<%=track.id%>" id="<%=track.id%>"><%=track.name%></input>
-		<%else%>
-			<input type="radio" name="track_radio" value="<%=track.id%>" id="<%=track.id%>"><%=track.name%></input>
-		<%end%>
-    <%end%>
-    <br><br>
-Or
-<%end%>
-<br>
-<br><h3>Create a new one:</h3>
-<label for=track_name>Track Name:</label>
-<input type="text" id="track_name" name="track[name]" placeholder="Track Name">
-<br><br>
-<label for=track_length>Track Length(Decimal):</label>
-<input type="text" id="track_length" name="track[length]" placeholder="Track Length">
-<br><br>
-<label for=track_type>Track Type:</label>
-<input type="radio" id="track_type_oval" name="track[track_type]" value="oval">Oval
-<input type="radio" id="track_type_road" name="track[track_type]" value="road">Road
-<br><br>
-<label for=track_address>Track Address:</label>
-<input type="text" id="track_address" name="track[address]" placeholder="Track Address">
-<br><br>
-<h3>Select your ratings below:</h3>
+<h3>Edit your ratings below:</h3>
 <br><br>
 <h3>Overall:</h3>
 <%overall_counter = 5%>

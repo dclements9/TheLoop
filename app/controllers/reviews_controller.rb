@@ -51,7 +51,7 @@ class ReviewsController < ApplicationController
         if !logged_in?
             erb :'/users/not_logged_in'
         else
-            @review = Review.find(params[:id])
+            find_review
             @user = User.find(session[:user_id])
             erb :'reviews/show'
         end
@@ -59,12 +59,10 @@ class ReviewsController < ApplicationController
     
     get '/reviews/:id/edit' do
         @tracks = Track.all
-        @review = Review.find_by(id: params[:id])
-        # binding.pry
+        find_review
         if !logged_in?
             redirect '/failure'
         else
-           ##Why find and not find by??
             if @review == current_user.reviews.find(params[:id])
                 @user = User.find_by(username: session[:username])
                 @current_track = Track.find(@review.track_id)
@@ -77,7 +75,7 @@ class ReviewsController < ApplicationController
 
     patch '/reviews/:id' do
         @tracks = Track.all
-        @review = Review.find(params[:id])
+        find_review
         if params[:track_radio] == "" && params[:track][:name] == ""
             @params_check = false
             erb :'/reviews/edit'
@@ -102,7 +100,7 @@ class ReviewsController < ApplicationController
         if !logged_in?
             redirect '/failure'
         else
-            @review = Review.find_by(id: params[:id])
+            find_review
             if @review == current_user.reviews.find_by(params[:id])
                 @user = User.find_by(username: session[:username])
                 @review.destroy
